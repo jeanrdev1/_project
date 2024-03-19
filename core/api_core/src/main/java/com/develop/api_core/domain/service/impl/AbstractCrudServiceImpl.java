@@ -25,6 +25,7 @@ public abstract class AbstractCrudServiceImpl<T extends AbstractEntity, D extend
         this.repository = repository;
     }
 
+    @SuppressWarnings("null")
     @Override
     public ResponseEntity<T> save(D dto) {
         T entity = modelMapper.map(dto, entityClass());
@@ -32,6 +33,7 @@ public abstract class AbstractCrudServiceImpl<T extends AbstractEntity, D extend
         return ResponseEntity.ok(entity);
     }
 
+    @SuppressWarnings("null")
     @Override
     public ResponseEntity<T> update(Long id, D dto) {
         T entity = repository.findById(id).orElseThrow(NotFoundException::new);
@@ -40,6 +42,7 @@ public abstract class AbstractCrudServiceImpl<T extends AbstractEntity, D extend
         return ResponseEntity.ok(entity);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void delete(Long id) {
         T entity = repository.findById(id).orElseThrow(NotFoundException::new);

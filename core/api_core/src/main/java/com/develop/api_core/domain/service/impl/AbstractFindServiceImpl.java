@@ -28,6 +28,7 @@ public abstract class AbstractFindServiceImpl<T extends AbstractEntity> implemen
         return ResponseEntity.ok(entities);
     }
 
+    @SuppressWarnings("null")
     @Override
     public ResponseEntity<T> findById(Long id) {
         T entity = repository.findById(id).orElseThrow(NotFoundException::new);
